@@ -57,6 +57,48 @@
         opacity: 0;
       }
     }
+
+    #popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+#popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 300px;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.7); }
+  to { transform: scale(1); }
+}
+
+#popup-content h2 {
+  margin-top: 0;
+}
+
+#popup-content button {
+  margin-top: 15px;
+  font-size: 18px;
+  padding: 10px 25px;
+  border-radius: 12px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -79,18 +121,18 @@
     `;
   }
 
-  function moveNo() {
-    const noBtn = document.getElementById("no");
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 100);
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+ function moveNo() {
+  const noBtn = document.getElementById("no");
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 100);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
 
-    yesSize += 50;
-    document.getElementById("yes").style.fontSize = yesSize + "px";
+  yesSize += 10;
+  document.getElementById("yes").style.fontSize = yesSize + "px";
 
-    noCount++;
-    const messages = [
+  noCount++;
+ const messages = [
       "Biztosss? 🥺",
       "Ne márrr 😏",
       "Nemhiszem hogy ez a jó válasz 😅",
@@ -98,15 +140,17 @@
       "Csak nyomj az igenre kérlekk! 🥺"
     ];
 
-    <div id="popup" style="display:none;">
-  <div id="popup-content">
-    <h2>💌 Marci üzeni</h2>
-    <p id="popup-text"></p>
-    <button onclick="closePopup()">Oké 💕</button>
-  </div>
-</div>
+  showPopup(messages[Math.min(noCount - 1, messages.length - 1)]);
+}
 
-  }
+function showPopup(text) {
+  document.getElementById("popup-text").innerText = text;
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
 
   // 💕 Szívecskék generálása
   function createHeart() {
@@ -125,6 +169,13 @@
 
   setInterval(createHeart, 300);
 </script>
+<div id="popup" style="display:none;">
+  <div id="popup-content">
+    <h2>💌 Marci üzeni</h2>
+    <p id="popup-text"></p>
+    <button onclick="closePopup()">Oké 💕</button>
+  </div>
+</div>
 
 </body>
 </html>
