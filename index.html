@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>💖 Heni 💖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding-top: 120px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+    }
+
+    h1 {
+      font-size: 42px;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+    button {
+      font-size: 22px;
+      padding: 15px 35px;
+      margin: 20px;
+      cursor: pointer;
+      border-radius: 12px;
+      border: none;
+      position: relative;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+      z-index: 2;
+    }
+
+    #no {
+      background-color: #cccccc;
+      position: absolute;
+    }
+
+    /* 💕 Hulló szívek */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: red;
+      font-size: 20px;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Heni 💕</h1>
+<p>Leszel a Valentinom? 🌹</p>
+
+<button id="yes" onclick="yes()">IGEN 😍</button>
+<button id="no" onmouseover="moveNo()">NEM 🙄</button>
+
+<script>
+  let yesSize = 22;
+  let noCount = 0;
+
+  function yes() {
+    document.body.innerHTML = `
+      <h1>YAAAAAY 💖</h1>
+      <p>Heni, most hivatalosan is az enyém vagy Valentin-napon 🥰</p>
+      <p>Szeretlek 💘</p>
+    `;
+  }
+
+  function moveNo() {
+    const noBtn = document.getElementById("no");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    yesSize += 10;
+    document.getElementById("yes").style.fontSize = yesSize + "px";
+
+    noCount++;
+    const messages = [
+      "Biztos, Heni? 🥺",
+      "Na ne már 😏",
+      "Ez nem jó döntés 😅",
+      "Nézd milyen nagy lett az IGEN 👀",
+      "Oké, most már nincs menekvés 😘"
+    ];
+
+    alert(messages[Math.min(noCount - 1, messages.length - 1)]);
+  }
+
+  // 💕 Szívecskék generálása
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+    heart.style.fontSize = (14 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
