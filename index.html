@@ -99,7 +99,14 @@
       "Csak nyomj az igenre kérlekk! 🥺"
     ];
 
-    alert(messages[Math.min(noCount - 1, messages.length - 1)]);
+    <div id="popup" style="display:none;">
+  <div id="popup-content">
+    <h2>💌 Marci üzeni</h2>
+    <p id="popup-text"></p>
+    <button onclick="closePopup()">Oké 💕</button>
+  </div>
+</div>
+
   }
 
   // 💕 Szívecskék generálása
