@@ -99,6 +99,27 @@
   color: white;
   cursor: pointer;
 }
+ .gif-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.gif-container img {
+  width: 120px;
+  border-radius: 15px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+
   </style>
 </head>
 <body>
@@ -106,6 +127,12 @@
 <h1>Heni 💕</h1>
 <p>Leszel a Valentinom? 🌹</p>
 
+<div class="gif-container">
+  <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnM2bGdydWRmd3gwdmF5Z3htbHd1dDd2a3JhYmN1MTNmejYxeXdleSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xvHRCJnQEgAu0WjLoD/giphy.gif" alt="cuki gif 1">
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmxxZW5iZDA2cmNzcjR3Nzhsc3doODdoYnZ3ZnloOWlnYmZvaGRmeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qKQQUKSSbWBkO2V3KX/giphy.gif" alt="cuki gif 2">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTM2MWI4YjQ1ejk3YzE2dnVwMzA3dmJrODk2cmc4cTVjajQwcWduMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NqcjA3F7khqPen7ouk/giphy.gif" alt="cuki gif 3">
+</div>
+  
 <button id="yes" onclick="yes()">IGEN 😍</button>
 <button id="no" onmouseover="moveNo()">NEM 🙄</button>
 
