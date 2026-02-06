@@ -109,10 +109,15 @@
 }
 
 .gif-container img {
-  width: 120px;
-  border-radius: 15px;
-  animation: float 3s ease-in-out infinite;
+  width: 90px;
 }
+
+@media (min-width: 600px) {
+  .gif-container img {
+    width: 120px;
+  }
+}
+
 
 @keyframes float {
   0% { transform: translateY(0); }
