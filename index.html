@@ -162,6 +162,18 @@
     100% { transform: scale(1); }
   }
 }
+.big-heart {
+  width: 260px;
+  max-width: 80vw;
+  margin-top: 25px;
+  animation: popHeart 1.2s ease-in-out infinite;
+}
+
+@keyframes popHeart {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
 
   </style>
 </head>
@@ -188,6 +200,12 @@
       <h1>Köszönömm babaa 💖</h1>
       <p>Moost már hivatalosan is az enyém vagy Valentin-naponn (IS) 🥰</p>
       <p>Szeretlek szivemm 💘</p>
+
+       <img 
+      src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" 
+      alt="Szív" 
+      class="big-heart"
+    >
     `;
   }
 
